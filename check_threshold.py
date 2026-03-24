@@ -8,7 +8,7 @@ for the accuracy metric, and fails (exit code 1) if accuracy < 0.85.
 import sys
 import mlflow
 
-THRESHOLD = 1.01
+THRESHOLD = 0.85
 
 
 def main():
