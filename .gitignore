@@ -14,8 +14,6 @@ venv/
 mlruns/
 mlartifacts/
 
-# DVC
-/data/*.csv
 
 # Model artifacts
 model_info.txt
