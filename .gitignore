@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.env/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# DVC
+/data/*.csv
+
+# Model artifacts
+model_info.txt
+
+# OS
+.DS_Store
+Thumbs.db
