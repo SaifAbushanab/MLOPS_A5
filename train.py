@@ -16,9 +16,7 @@ from sklearn.metrics import accuracy_score
 
 
 def main():
-    # ------------------------------------------------------------------
     # 1. Load data (pulled via DVC)
-    # ------------------------------------------------------------------
     data_path = os.path.join("data", "iris.csv")
     df = pd.read_csv(data_path)
 
@@ -29,19 +27,15 @@ def main():
         X, y, test_size=0.2, random_state=42
     )
 
-    # ------------------------------------------------------------------
     # 2. Train model
-    # ------------------------------------------------------------------
-    model = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)
+    model = RandomForestClassifier(n_estimators=1, max_depth=1, random_state=42)
     model.fit(X_train, y_train)
 
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     print(f"Model accuracy: {accuracy:.4f}")
 
-    # ------------------------------------------------------------------
     # 3. Log to MLflow
-    # ------------------------------------------------------------------
     mlflow.set_experiment("assignment5-iris")
 
     with mlflow.start_run() as run:
@@ -53,9 +47,7 @@ def main():
         run_id = run.info.run_id
         print(f"MLflow Run ID: {run_id}")
 
-    # ------------------------------------------------------------------
     # 4. Export Run ID
-    # ------------------------------------------------------------------
     with open("model_info.txt", "w") as f:
         f.write(run_id)
 
