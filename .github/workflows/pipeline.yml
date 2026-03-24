@@ -38,7 +38,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: model-info
-          path: model_info.txt
+          path: |
+            model_info.txt
+            mlruns/
 
   # ================================================================
   # Job 2: Deploy — Check threshold and mock Docker build
@@ -63,6 +65,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: model-info
+          path: .
 
       - name: Check Accuracy Threshold
         env:
